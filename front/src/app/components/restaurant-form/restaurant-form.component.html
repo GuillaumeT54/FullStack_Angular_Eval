@@ -1,0 +1,22 @@
+<p>restaurant-form works!</p>
+<form #form="ngForm" (ngSubmit)="save(form)">
+  <div>
+    Nom :
+    <input type="text" name="nom" #nom="ngModel" [(ngModel)]="nomInput" maxlength="90" required>
+    <span style="color: red" *ngIf="!nom.valid && nom.errors?.['required']">Le champs est requis</span>
+    <span style="color: red" *ngIf="!nom.valid && nom.errors?.['maxlength']">Le champs est trop long</span>
+  </div>
+  <div>
+    Adresse :
+    <input type="text" name="adresse" #adresse="ngModel" [(ngModel)]="adresseInput" maxlength="255" required>
+    <span style="color: red" *ngIf="!adresse.valid && adresse.errors?.['required']">Le champs est requis</span>
+    <span style="color: red" *ngIf="!adresse.valid && adresse.errors?.['maxlength']">Le champs est trop long</span>
+  </div>
+  <div>
+    Evaluation :
+    <input type="text" name="evaluation" #evaluation="ngModel" [(ngModel)]="adresseInput" maxlength="2" required>
+    <span style="color: red" *ngIf="!evaluation.valid && evaluation.errors?.['required']">Le champs est requis</span>
+    <span style="color: red" *ngIf="!evaluation.valid && evaluation.errors?.['maxlength']">Le champs est trop long</span>
+  </div>
+  <button type="submit">Valider</button>
+</form>
